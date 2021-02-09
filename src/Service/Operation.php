@@ -102,7 +102,7 @@ class Operation
     {
         $operationsHistory = $operationsHistory->where($this->week(), $this->user);
 
-        if (empty($operationsHistory)) {
+        if (empty($operationsHistory || count($operationsHistory > 3))) {
             $this->operation_currency !== 'EUR' ? $ammount = $this->convert($this->operation_currency, 'EUR', (float) $this->operation_ammount) : $ammount = (float) $this->operation_ammount;
 
             $taxable = max(0, $ammount - $this->discount);
