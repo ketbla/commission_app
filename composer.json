@@ -1,0 +1,36 @@
+{
+    "name": "kestutis/commission-app",
+    "description": "Commission calculating app",
+    "keywords": [],
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\CommissionApp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\CommissionApp\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "ext-bcmath": "*",
+        "benmajor/exchange-rates-api": "^2.0",
+        "fzaninotto/faker": "^1.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "friendsofphp/php-cs-fixer": "^2.18"
+    },
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "phpunit": "phpunit",
+        "fix-cs": "php-cs-fixer fix",
+        "test-cs": "php-cs-fixer fix --dry-run -v",
+        "test": ["@phpunit", "@test-cs"]
+    }
+}
